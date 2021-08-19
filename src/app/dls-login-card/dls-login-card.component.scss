@@ -1,0 +1,48 @@
+
+.ukg-logo {
+    max-width: 300px; 
+    margin: auto; 
+    padding: 2rem
+}
+
+.ukg-text-center {
+    text-align: center;
+}
+
+.ukg-forgot-password {
+    text-decoration: none;
+    font-size: .75rem;
+}
+
+.ukg-d-flex {
+    display: flex;
+    width: 100%;
+}
+
+.ukg-jc-center {
+    justify-content: center;
+}
+
+
+.ukg-jc-between  {
+    justify-content: space-between;
+}
+
+.ukg-align-center { 
+    align-items: center;
+}
+
+.invalid-login {
+    color: red;
+    margin: 1rem;
+}
+
+@media (max-width: 600px) {
+    .sub-action-group {
+        flex-direction: column;
+    }
+
+    .ukg-logo {
+        padding: 2rem 0 2rem 0;
+    }
+}

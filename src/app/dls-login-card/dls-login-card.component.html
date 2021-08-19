@@ -1,0 +1,86 @@
+<ukg-card nonActionable padding="l" class="ukg-text-center">
+  <img
+    src="../../assets/images/login-logo.png"
+    alt="UKG - Our Purpose is People"
+    class="ukg-logo"
+  />
+  <form id="login-form" [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <ukg-card-content>
+      <h1 style="font-size: 1.25rem">Sign in</h1>
+      <div class="ukg-text-center invalid-login" aria-live="polite">
+          <ukg-label *ngIf="form.errors?.invalid" slot="left">
+            <ukg-icon size="s" name="warning" color="error"></ukg-icon>
+            Username or password incorrect
+          </ukg-label>
+      </div>
+
+      <ukg-input-container>
+        <ukg-label for="username">Username</ukg-label>
+        <ukg-input
+          formControlName="username"
+          type="text"
+          id="username"
+          [error]="username.invalid && username.touched || form.errors?.invalid"
+          required
+        ></ukg-input>
+
+        <ukg-input-assistive
+          slot="assistive"
+          [error]="username.invalid && username.touched"
+        >
+          <ukg-label
+            *ngIf="
+              username.invalid && username.touched && username.errors?.required
+            "
+            slot="left" aria-live="polite" aria-label="Username field error"
+          >
+            <ukg-icon size="s" name="warning" color="error"></ukg-icon>
+            Required
+          </ukg-label>
+        </ukg-input-assistive>
+      </ukg-input-container>
+      <ukg-input-container>
+        <ukg-label for="password">Password</ukg-label>
+        <ukg-input
+          formControlName="password"
+          type="password"
+          [error]="password.invalid && password.touched || form.errors?.invalid"
+          required
+          id="password"
+        ></ukg-input>
+        <ukg-input-assistive
+          slot="assistive"
+          [error]="password.invalid && password.touched"
+        >
+          <ukg-label
+            *ngIf="
+              password.invalid && password.touched && password.errors?.required
+            "
+            slot="left"
+            aria-live="polite"
+            aria-label="Password field error"
+          >
+            <ukg-icon size="s" name="warning" color="error"></ukg-icon>
+            Required
+          </ukg-label>
+        </ukg-input-assistive>
+      </ukg-input-container>
+      <div
+        id="sub-actions"
+        class="ukg-d-flex ukg-jc-between ukg-align-center sub-action-group"
+      >
+        <ukg-checkbox rounded-corners="true">
+          Remember me next time
+        </ukg-checkbox>
+        <a
+          class="ukg-display--xs-on-light ukg-forgot-password"
+          href="/forgot-password"
+          >Forgot your password?</a
+        >
+      </div>
+    </ukg-card-content>
+    <ukg-card-footer class="ukg-d-flex ukg-jc-center">
+      <ukg-button type="submit">Submit</ukg-button>
+    </ukg-card-footer>
+  </form>
+</ukg-card>
